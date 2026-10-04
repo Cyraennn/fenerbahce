@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fenerbahçe Spor Kulübü tanıtım sitesi: 3 Mayıs 1907'den bugüne tarih, kupalar, efsaneler, Ülker Stadyumu Şükrü Saracoğlu Spor Kompleksi, branşlar ve 3D sinematik film." />
+  <meta name="theme-color" content="#061229" />
+  <title>Fenerbahçe Spor Kulübü | 1907'den Bugüne</title>
+  <link rel="canonical" href="https://cyraennn.github.io/fenerbahce/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ffed00' stroke='%230a1f44' stroke-width='4'/%3E%3Ctext x='32' y='42' font-family='Arial Black,Arial' font-weight='900' font-size='26' text-anchor='middle' fill='%230a1f44'%3EFB%3C/text%3E%3C/svg%3E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:title" content="Fenerbahçe | 1907'den Bugüne — 3D Sinematik Hayran Sitesi" />
+  <meta property="og:description" content="Kuruluştan bugüne tarih, kupalar, efsaneler ve tarayıcıda üretilen 3D film. Bağımsız bir hayran çalışması." />
+  <meta property="og:url" content="https://cyraennn.github.io/fenerbahce/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#hero">İçeriğe atla</a>
+
+  <!-- ============ EFEKT KATMANLARI ============ -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor-ring"></span>
+    <span class="cursor-dot"></span>
+  </div>
+
+  <!-- ============ SİNEMATİK GEÇİŞ KATMANI ============ -->
+  <div class="cine is-intro" id="cine" aria-hidden="true">
+    <canvas class="cine-canvas" id="cineCanvas"></canvas>
+    <div class="cine-shutters" id="cineShutters">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="cine-title" id="cineTitle">
+      <span class="cine-chapter" id="cineChapter">3 Mayıs 1907</span>
+      <span class="cine-heading" id="cineHeading">FENERBAHÇE</span>
+      <span class="cine-sub" id="cineSub">Kadıköy'ün Kalbi</span>
+    </div>
+    <div class="cine-flash" id="cineFlash"></div>
+    <div class="cine-bar cine-bar-top"></div>
+    <div class="cine-bar cine-bar-bottom"></div>
+  </div>
+
+  <!-- ============ ÜST MENÜ ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#hero" class="brand" aria-label="Fenerbahçe ana sayfa">
+        <span class="brand-badge" aria-hidden="true">FB</span>
+        <span class="brand-text">Fenerbahçe<small>Spor Kulübü · 1907</small></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="visually-hidden">Menüyü aç/kapat</span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Ana menü">
+        <ul>
+          <li><a href="#hero" class="nav-link active">Anasayfa</a></li>
+          <li><a href="#film" class="nav-link">Film</a></li>
+          <li><a href="#tarih" class="nav-link">Tarih</a></li>
+          <li><a href="#basarilar" class="nav-link">Başarılar</a></li>
+          <li><a href="#efsaneler" class="nav-link">Efsaneler</a></li>
+          <li><a href="#stadyum" class="nav-link">Stadyum</a></li>
+          <li><a href="#branslar" class="nav-link">Branşlar</a></li>
+          <li><a href="#iletisim" class="nav-link">İletişim</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-stage" id="pageStage">
+  <main>
+    <!-- ============ GİRİŞ / HERO ============ -->
+    <section class="hero" id="hero" aria-labelledby="hero-title" data-cine-title="FENERBAHÇE" data-cine-sub="Kadıköy'ün Kalbi">
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="container hero-inner">
+        <p class="hero-eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Kadıköy · 3 Mayıs 1907</p>
+        <h1 id="hero-title" class="hero-title" aria-label="Fenerbahçe">
+          <span class="split" aria-hidden="true">FENERBAHÇE</span>
+        </h1>
+        <p class="hero-sub">
+          Sarı-lacivert renkler, yüzyılı aşan bir tutku. Fenerbahçe Burnu'ndaki
+          deniz fenerinden adını alan kulüp; futboldan basketbola, voleyboldan
+          atletizme Türk sporunun en büyük çınarlarından biri.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#film" class="btn btn-yellow magnetic"><span>▶ Filmi İzle</span></a>
+          <a href="#tarih" class="btn btn-ghost magnetic"><span>Tarihe Yolculuk</span></a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-counter" role="timer" aria-label="Kuruluştan bu yana geçen yıl">
+            <span class="hero-counter-number" id="yearsCounter">0</span>
+            <span class="hero-counter-label">yıldır<br />sarı-lacivert</span>
+          </div>
+
+          <ul class="hero-stats" aria-label="Kulüp istatistikleri">
+            <li><strong data-count="28">0</strong><span>Ulusal Şampiyonluk</span></li>
+            <li><strong data-count="19">0</strong><span>Süper Lig</span></li>
+            <li><strong data-count="5">0</strong><span>EuroLeague (Basketbol)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="#film" class="scroll-hint" aria-label="Aşağı kaydır">
+        <span class="scroll-hint-mouse" aria-hidden="true"></span>
+        <span>Kaydır</span>
+      </a>
+    </section>
+
+    <!-- ============ KAYAN BANT ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>19 Süper Lig</span><i>★</i><span>7 Türkiye Kupası</span><i>★</i><span>10 Süper Kupa</span><i>★</i>
+        <span>EuroLeague 2017 · 2025</span><i>★</i><span>Kadın EuroLeague 2023 · 2024 · 2026</span><i>★</i>
+        <span>CEV Şampiyonlar Ligi 2012</span><i>★</i><span>Balkan Kupası 1968</span><i>★</i>
+        <span>19 Süper Lig</span><i>★</i><span>7 Türkiye Kupası</span><i>★</i><span>10 Süper Kupa</span><i>★</i>
+        <span>EuroLeague 2017 · 2025</span><i>★</i><span>Kadın EuroLeague 2023 · 2024 · 2026</span><i>★</i>
+        <span>CEV Şampiyonlar Ligi 2012</span><i>★</i><span>Balkan Kupası 1968</span><i>★</i>
+      </div>
+    </div>
+
+    <!-- ============ 3D FİLM ============ -->
+    <section class="section section-film" id="film" aria-labelledby="film-title" data-cine-title="FB Sinema" data-cine-sub="Gerçek Zamanlı 3D Film">
+      <div class="container">
+        <p class="section-eyebrow">FB Sinema · 3D</p>
+        <h2 class="section-title" id="film-title">Bir Asrın Filmi</h2>
+        <p class="section-lead">
+          Deniz fenerinden Kadıköy'ün tribünlerine, kupalardan Avrupa
+          zirvelerine… Bu film tarayıcında gerçek zamanlı 3D olarak üretiliyor.
+          İstersen <strong>“Videoyu Kaydet”</strong> ile .webm dosyası olarak indir.
+        </p>
+
+        <div class="film-player" id="filmPlayer">
+          <div class="film-screen">
+            <canvas class="film-canvas" id="filmCanvas" width="1280" height="720" aria-label="Fenerbahçe 3D tanıtım filmi"></canvas>
+            <button class="film-big-play" id="filmBigPlay" aria-label="Filmi oynat">
+              <span aria-hidden="true">▶</span>
+            </button>
+            <div class="film-rec" id="filmRec" hidden><span></span> KAYIT</div>
+            <p class="film-fallback" id="filmFallback" hidden>
+              3D film için internet bağlantısı (Three.js) ve WebGL desteği gerekiyor.
+            </p>
+          </div>
+
+          <div class="film-controls">
+            <button class="film-btn" id="filmPlay" aria-label="Oynat">▶</button>
+            <span class="film-time" id="filmTime">0:00 / 0:44</span>
+            <div class="film-progress" id="filmProgress" role="slider" tabindex="0"
+                 aria-label="Film konumu" aria-valuemin="0" aria-valuemax="44" aria-valuenow="0">
+              <div class="film-progress-fill" id="filmProgressFill"></div>
+              <div class="film-chapters" id="filmChapters"></div>
+            </div>
+            <button class="film-btn" id="filmMute" aria-label="Sesi aç">🔇</button>
+            <button class="film-btn film-btn-rec" id="filmRecord">⏺ Videoyu Kaydet</button>
+            <button class="film-btn" id="filmFull" aria-label="Tam ekran">⛶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TARİH — YATAY ŞERİT ============ -->
+    <section class="htl" id="tarih" aria-labelledby="tarih-title" data-cine-title="Tarih" data-cine-sub="1907'den Bugüne Yolculuk">
+      <div class="htl-sticky">
+        <div class="container htl-head">
+          <p class="section-eyebrow">1907 · Kadıköy</p>
+          <h2 class="section-title" id="tarih-title">Kulüp Tarihimize Yolculuk</h2>
+          <div class="htl-progress" aria-hidden="true"><span id="htlProgress"></span></div>
+        </div>
+
+        <ol class="htl-track" id="htlTrack">
+          <li class="htl-card">
+            <span class="htl-year">1907</span>
+            <h3>Kuruluş</h3>
+            <p>3 Mayıs 1907'de Kadıköy'de Ziya Songülen, Ayetullah Bey ve Necip Okaner tarafından kuruldu. Adı, Fenerbahçe Burnu'ndaki deniz fenerinden gelir.</p>
+          </li>
+          <li class="htl-card">
+            <span class="htl-year">1910</span>
+            <h3>Sarı-Lacivert</h3>
+            <p>Hikmet Topuzer'in tasarladığı arma ve bugünkü sarı-lacivert renkler benimsendi.</p>
+          </li>
+          <li class="htl-card">
+            <span class="htl-year">1959</span>
+            <h3>İlk Lig Şampiyonu</h3>
+            <p>Türkiye'nin ulusal profesyonel liginin ilk sezonunda şampiyonluğu Fenerbahçe kazandı.</p>
+          </li>
+          <li class="htl-card">
+            <span class="htl-year">1968</span>
+            <h3>Balkan Kupası</h3>
+            <p>Bir Türk kulübünün kazandığı ilk uluslararası kupa olarak tarihe geçti.</p>
+          </li>
+          <li class="htl-card">
+            <span class="htl-year">1996</span>
+            <h3>Old Trafford</h3>
+            <p>Şampiyonlar Ligi'nde Manchester United'ı kendi sahasında 1-0 yenerek Avrupa'yı salladı.</p>
+          </li>
+          <li class="htl-card">
+            <span class="htl-year">2008</span>
+            <h3>Çeyrek Final</h3>
+            <p>UEFA Şampiyonlar Ligi'nde çeyrek finale yükselerek kulüp tarihinin en iyi Avrupa sezonlarından birini yaşadı.</p>
+          </li>
+          <li class="htl-card">
+            <span class="htl-year">2012</span>
+            <h3>Voleybolda Zirve</h3>
+            <p>Kadın voleybol takımı CEV Şampiyonlar Ligi'ni kazandı; 2010'da Dünya Kulüpler Şampiyonu olmuştu.</p>
+          </li>
+          <li class="htl-card">
+            <span class="htl-year">2013</span>
+            <h3>Avrupa Ligi Yarı Finali</h3>
+            <p>UEFA Avrupa Ligi'nde yarı finale kadar yükseldi.</p>
+          </li>
+          <li class="htl-card">
+            <span class="htl-year">2017</span>
+            <h3>Avrupa'nın Zirvesi</h3>
+            <p>Erkek basketbol takımı İstanbul'daki Final Four'da EuroLeague şampiyonu oldu.</p>
+          </li>
+          <li class="htl-card">
+            <span class="htl-year">2025</span>
+            <h3>İkinci Yıldız</h3>
+            <p>Erkek basketbol takımı ikinci kez EuroLeague şampiyonu oldu.</p>
+          </li>
+          <li class="htl-card">
+            <span class="htl-year">2026</span>
+            <h3>Kadınlar Yine Zirvede</h3>
+            <p>Kadın basketbol takımı üçüncü EuroLeague kupasını kazandı (2023, 2024, 2026).</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ BAŞARILAR ============ -->
+    <section class="section" id="basarilar" aria-labelledby="basarilar-title" data-cine-title="Başarılar" data-cine-sub="Kupa Dolu Bir Tarih">
+      <div class="container">
+        <p class="section-eyebrow">Kupa Dolu Bir Tarih</p>
+        <h2 class="section-title" id="basarilar-title">Başarılarımız</h2>
+        <p class="section-lead">
+          Guinness Rekorlar Kitabı'na göre (2008), dünyada en çok madalya ve
+          kupa kazanan spor kulübü. Futbolda 28 ulusal şampiyonluk, salonda
+          Avrupa'nın zirvesi.
+        </p>
+
+        <div class="trophy-grid">
+          <article class="trophy-card tilt">
+            <span class="trophy-emoji" aria-hidden="true">⚽</span>
+            <span class="trophy-number" data-count="19">0</span>
+            <h3>Süper Lig</h3>
+            <p>Şampiyonluk · ilk şampiyon 1959</p>
+          </article>
+          <article class="trophy-card tilt">
+            <span class="trophy-emoji" aria-hidden="true">🏆</span>
+            <span class="trophy-number" data-count="7">0</span>
+            <h3>Türkiye Kupası</h3>
+            <p>Şampiyonluk</p>
+          </article>
+          <article class="trophy-card tilt">
+            <span class="trophy-emoji" aria-hidden="true">⭐</span>
+            <span class="trophy-number" data-count="10">0</span>
+            <h3>Süper Kupa</h3>
+            <p>Şampiyonluk</p>
+          </article>
+          <article class="trophy-card tilt">
+            <span class="trophy-emoji" aria-hidden="true">🏀</span>
+            <span class="trophy-number" data-count="2">0</span>
+            <h3>EuroLeague (Erkek)</h3>
+            <p>2017 · 2025</p>
+          </article>
+          <article class="trophy-card tilt">
+            <span class="trophy-emoji" aria-hidden="true">🏀</span>
+            <span class="trophy-number" data-count="3">0</span>
+            <h3>EuroLeague (Kadın)</h3>
+            <p>2023 · 2024 · 2026</p>
+          </article>
+          <article class="trophy-card tilt">
+            <span class="trophy-emoji" aria-hidden="true">🏐</span>
+            <span class="trophy-number" data-count="2012">0</span>
+            <h3>CEV Şampiyonlar Ligi</h3>
+            <p>Kadın voleybol · 2010 Dünya Kulüpler Şampiyonu</p>
+          </article>
+        </div>
+        <p class="fine-print">* 6 Milli Küme, 3 Türkiye Futbol Şampiyonası ve 19 Süper Lig. Rakamlar Ekim 2026 itibarıyladır.</p>
+      </div>
+    </section>
+
+    <!-- ============ EFSANELER ============ -->
+    <section class="section section-alt" id="efsaneler" aria-labelledby="efsaneler-title" data-cine-title="Efsaneler" data-cine-sub="Formayı Ölümsüzleştirenler">
+      <div class="container">
+        <p class="section-eyebrow">Formayı Ölümsüzleştirenler</p>
+        <h2 class="section-title" id="efsaneler-title">Efsaneler</h2>
+        <p class="section-lead">Kartın üzerine gel ya da dokun: efsane döner, hikâyesini anlatır.</p>
+
+        <div class="legend-grid">
+          <button class="legend-card" type="button" aria-label="Zeki Rıza Sporel">
+            <span class="legend-inner">
+              <span class="legend-face legend-front">
+                <span class="legend-num">ZRS</span>
+                <span class="legend-name">Zeki Rıza Sporel</span>
+                <span class="legend-role">Forvet · 1910'lar–30'lar</span>
+              </span>
+              <span class="legend-face legend-back">
+                Kulübün ilk büyük golcüsü. Yüzlerce golle Fenerbahçe'nin
+                erken dönem efsanesi; kulüp tarihinin en golcü isimlerinden.
+              </span>
+            </span>
+          </button>
+          <button class="legend-card" type="button" aria-label="Lefter Küçükandonyadis">
+            <span class="legend-inner">
+              <span class="legend-face legend-front">
+                <span class="legend-num">10</span>
+                <span class="legend-name">Lefter</span>
+                <span class="legend-role">“Ordinaryüs” · Forvet</span>
+              </span>
+              <span class="legend-face legend-back">
+                600'ü aşkın maçta 400'den fazla gol. Kulüp tarihinde jübile
+                yapılan ilk futbolcu; Fenerbahçe'nin ölümsüz 10 numarası.
+              </span>
+            </span>
+          </button>
+          <button class="legend-card" type="button" aria-label="Can Bartu">
+            <span class="legend-inner">
+              <span class="legend-face legend-front">
+                <span class="legend-num">CB</span>
+                <span class="legend-name">Can Bartu</span>
+                <span class="legend-role">Futbol &amp; Basketbol</span>
+              </span>
+              <span class="legend-face legend-back">
+                Hem futbolda hem basketbolda milli formayı giyen çok yönlü yıldız;
+                İtalya'da top koşturan ilk Türk futbolculardan.
+              </span>
+            </span>
+          </button>
+          <button class="legend-card" type="button" aria-label="Cemil Turan">
+            <span class="legend-inner">
+              <span class="legend-face legend-front">
+                <span class="legend-num">9</span>
+                <span class="legend-name">Cemil Turan</span>
+                <span class="legend-role">Golcü · 1970'ler</span>
+              </span>
+              <span class="legend-face legend-back">
+                Üç kez lig gol kralı olan, 70'lerin sarı-lacivert şampiyonluklarının
+                gol makinesi.
+              </span>
+            </span>
+          </button>
+          <button class="legend-card" type="button" aria-label="Rüştü Reçber">
+            <span class="legend-inner">
+              <span class="legend-face legend-front">
+                <span class="legend-num">1</span>
+                <span class="legend-name">Rüştü Reçber</span>
+                <span class="legend-role">Kaleci</span>
+              </span>
+              <span class="legend-face legend-back">
+                2002 Dünya Kupası'nda dünya üçüncülüğü yaşayan milli takımın
+                yıldız kalecisi; Kadıköy'ün unutulmaz eldivenleri.
+              </span>
+            </span>
+          </button>
+          <button class="legend-card" type="button" aria-label="Alex de Souza">
+            <span class="legend-inner">
+              <span class="legend-face legend-front">
+                <span class="legend-num">10</span>
+                <span class="legend-name">Alex de Souza</span>
+                <span class="legend-role">Kaptan · 2004–2012</span>
+              </span>
+              <span class="legend-face legend-back">
+                Kulüp tarihinin en başarılı yabancı oyuncusu. Kadıköy'de adına
+                heykel dikilen efsane kaptan.
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STADYUM ============ -->
+    <section class="section" id="stadyum" aria-labelledby="stadyum-title" data-cine-title="Stadyum" data-cine-sub="Ülker Stadyumu Şükrü Saracoğlu">
+      <div class="container stadyum-grid">
+        <div class="stadyum-text">
+          <p class="section-eyebrow">Kadıköy'ün Kalbi</p>
+          <h2 class="section-title" id="stadyum-title">Ülker Stadyumu<br />Şükrü Saracoğlu Spor Kompleksi</h2>
+          <p>
+            Türkiye'nin en coşkulu tribün atmosferlerinden birine ev sahipliği
+            yapan stadyum; eski Başbakan ve kulüp başkanı
+            <strong>Şükrü Saracoğlu</strong> anısına adlandırılmıştır.
+          </p>
+          <ul class="stadyum-facts">
+            <li><span>📍</span> Kadıköy / İstanbul</li>
+            <li><span>🏗️</span> Kapsamlı yenileme tamamlandı: 2006</li>
+            <li><span>👥</span> Yaklaşık 47.000 seyirci kapasitesi</li>
+            <li><span>🏆</span> 2009 UEFA Kupası finaline ev sahipliği yaptı</li>
+          </ul>
+        </div>
+
+        <div class="stadyum-visual" id="stadiumVisual" aria-hidden="true">
+          <div class="stadium-3d" id="stadium3d">
+            <div class="stadium-tier tier-1"></div>
+            <div class="stadium-tier tier-2"></div>
+            <div class="stadium-tier tier-3"></div>
+            <div class="stadium-pitch">
+              <div class="pitch-line"></div>
+              <div class="pitch-circle"></div>
+              <div class="pitch-box pitch-box-l"></div>
+              <div class="pitch-box pitch-box-r"></div>
+            </div>
+            <span class="flood flood-1"></span>
+            <span class="flood flood-2"></span>
+            <span class="flood flood-3"></span>
+            <span class="flood flood-4"></span>
+          </div>
+          <p class="stadyum-caption">Fareyle çevir · 3D stadyum şeması</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BRANŞLAR ============ -->
+    <section class="section section-alt" id="branslar" aria-labelledby="branslar-title" data-cine-title="Branşlar" data-cine-sub="Tek Kulüp, Çok Tutku">
+      <div class="container">
+        <p class="section-eyebrow">Tek Kulüp, Çok Tutku</p>
+        <h2 class="section-title" id="branslar-title">Branşlarımız</h2>
+        <p class="section-lead">
+          Fenerbahçe yalnızca bir futbol kulübü değil; erkek ve kadın
+          basketbolunda Avrupa şampiyonluğu bulunan ilk kulüp olan, onlarca
+          branşta binlerce sporcuyu barındıran bir spor ailesidir.
+        </p>
+
+        <div class="branch-grid">
+          <article class="branch-card tilt">
+            <span class="branch-emoji" aria-hidden="true">⚽</span>
+            <h3>Futbol</h3>
+            <p>19 Süper Lig, 7 Türkiye Kupası, 10 Süper Kupa.</p>
+          </article>
+          <article class="branch-card tilt">
+            <span class="branch-emoji" aria-hidden="true">🏀</span>
+            <h3>Basketbol</h3>
+            <p>Erkeklerde 2 (2017, 2025), kadınlarda 3 EuroLeague (2023, 2024, 2026).</p>
+          </article>
+          <article class="branch-card tilt">
+            <span class="branch-emoji" aria-hidden="true">🏐</span>
+            <h3>Voleybol</h3>
+            <p>Kadınlarda 2010 Dünya Kulüpler ve 2012 CEV Şampiyonlar Ligi zaferi.</p>
+          </article>
+          <article class="branch-card tilt">
+            <span class="branch-emoji" aria-hidden="true">🏃</span>
+            <h3>Atletizm</h3>
+            <p>Ulusal rekorlar ve uluslararası madalyalarla dolu bir geçmiş.</p>
+          </article>
+          <article class="branch-card tilt">
+            <span class="branch-emoji" aria-hidden="true">🏊</span>
+            <h3>Yüzme</h3>
+            <p>Milli takıma sporcu yetiştiren köklü bir gelenek.</p>
+          </article>
+          <article class="branch-card tilt">
+            <span class="branch-emoji" aria-hidden="true">⛵</span>
+            <h3>Yelken &amp; Kürek</h3>
+            <p>Kadıköy kıyılarından doğan su sporları geleneği.</p>
+          </article>
+          <article class="branch-card tilt">
+            <span class="branch-emoji" aria-hidden="true">🏓</span>
+            <h3>Masa Tenisi</h3>
+            <p>Ulusal ve Avrupa arenasında yarışan takımlar.</p>
+          </article>
+          <article class="branch-card tilt">
+            <span class="branch-emoji" aria-hidden="true">♟️</span>
+            <h3>Satranç</h3>
+            <p>Zekâ sporunda da sarı-lacivert bayrak dalgalanıyor.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BUGÜNÜN FENERBAHÇE'Sİ ============ -->
+    <section class="section section-now" aria-labelledby="now-title">
+      <div class="container">
+        <p class="section-eyebrow">Ekim 2026 · Güncel</p>
+        <h2 class="section-title" id="now-title">Bugünün Fenerbahçe'si</h2>
+        <div class="now-grid">
+          <article class="now-card tilt">
+            <span class="now-label">Başkan</span>
+            <strong>Aziz Yıldırım</strong>
+            <p>7 Haziran 2026 seçimli genel kurulunda %63,47 oyla yeniden başkan seçildi; kulüp tarihinin en yüksek oy sayısı.</p>
+          </article>
+          <article class="now-card tilt">
+            <span class="now-label">Teknik Direktör</span>
+            <strong>İsmail Kartal</strong>
+            <p>2026–27 sezonu için dördüncü kez sarı-lacivertlilerin başında.</p>
+          </article>
+          <article class="now-card tilt">
+            <span class="now-label">2025–26 Sezonu</span>
+            <strong>Süper Lig 2.si</strong>
+            <p>Hedef: 2014'ten bu yana beklenen 20. Süper Lig şampiyonluğu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ İLETİŞİM / FOOTER ============ -->
+  <footer class="site-footer" id="iletisim" data-cine-title="İletişim" data-cine-sub="Sarı-Lacivert Aileye Ulaşın">
+    <div class="footer-big" aria-hidden="true">FENERBAHÇE</div>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span class="brand-badge" aria-hidden="true">FB</span>
+          <span class="brand-text">Fenerbahçe<small>Spor Kulübü · 1907</small></span>
+        </div>
+        <p>
+          1907'den bu yana Fair-Play, centilmenlik ve spora adanmış
+          bir asır. Sarı-lacivert, Kadıköy'de her zaman yaşayacak.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>İletişim</h3>
+        <ul class="footer-list">
+          <li>📍 Şükrü Saracoğlu Stadyumu, Kadıköy / İstanbul</li>
+          <li>🌐 <a href="https://www.fenerbahce.org" target="_blank" rel="noopener">fenerbahce.org</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Sosyal Medya</h3>
+        <ul class="footer-list">
+          <li><a href="https://www.instagram.com/fenerbahce" target="_blank" rel="noopener">📷 Instagram</a></li>
+          <li><a href="https://x.com/fenerbahce" target="_blank" rel="noopener">✖ X (Twitter)</a></li>
+          <li><a href="https://www.youtube.com/fenerbahce" target="_blank" rel="noopener">▶️ YouTube</a></li>
+          <li><a href="https://www.facebook.com/fenerbahce" target="_blank" rel="noopener">👍 Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="year">2026</span> Bu site tanıtım amaçlı, bağımsız bir hayran çalışmasıdır; Fenerbahçe Spor Kulübü ile resmî bir bağı yoktur.</p>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+  <script src="hero3d.js"></script>
+  <script src="film.js"></script>
+</body>
+</html>
